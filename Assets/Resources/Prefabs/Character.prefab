@@ -1883,7 +1883,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LookTarget: {fileID: 1199989715100879332}
   AwarenessRadius: 2.75
-  VisionLimit: {x: -2.5, y: 2.5}
+  VisionLimit: {x: -0.9, y: 0.9}
+  currTarget: {fileID: 0}
 --- !u!195 &6153799818204358171
 NavMeshAgent:
   m_ObjectHideFlags: 0

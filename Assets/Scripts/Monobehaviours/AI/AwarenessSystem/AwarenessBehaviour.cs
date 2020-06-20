@@ -7,10 +7,9 @@ namespace Game_AI
         public Transform LookTarget;
 
         public float AwarenessRadius;
+        public float DotVisionLimit;
 
-        public Vector2 VisionLimit;
-
-        private AwarenessTarget currTarget;
+        public AwarenessTarget currTarget;
 
         private Vector3 defaultLookTargetOffset;
 
@@ -34,16 +33,13 @@ namespace Game_AI
         {
             if(this.currTarget != null)
             {
-                Vector3 targetPos = this.currTarget.transform.position;
-
-                float dotProduct = Vector3.Dot(targetPos, this.transform.right);
-
-                if(dotProduct < this.VisionLimit.x || dotProduct > this.VisionLimit.y)
+                if(!CanSee(this.currTarget.transform))
                 {
                     ResetLookDirection();
                     return;
                 }
 
+                Vector3 targetPos = this.currTarget.transform.position;
                 this.LookTarget.transform.position = targetPos;
             }
         }
@@ -55,6 +51,11 @@ namespace Game_AI
         {
             /// Check if the collision has the AwarenessTarget component
             if (!other.TryGetComponent<AwarenessTarget>(out AwarenessTarget target))
+            {
+                return;
+            }
+
+            if(!CanSee(other.transform))
             {
                 return;
             }
@@ -101,6 +102,18 @@ namespace Game_AI
                 ResetLookDirection();
                 this.currTarget = null;
             }
+        }
+
+        ///<summary>
+        /// Checks if the object is in front of the player
+        ///</summary>
+        private bool CanSee(Transform target)
+        {
+            Vector3 heading = this.transform.position - target.position;
+            heading.Normalize();
+            float dotProduct = Vector3.Dot(this.transform.forward, heading);
+
+            return dotProduct < this.DotVisionLimit;
         }
 
         private void ResetLookDirection()
