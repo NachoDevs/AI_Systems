@@ -2,7 +2,7 @@
 
 ## Previous SetUp
 
-- Rigged character [Suggested]
+- Rigged character [Recommended]
 - Pathfinding [Not required]
 - Wander System [Not required]
 
