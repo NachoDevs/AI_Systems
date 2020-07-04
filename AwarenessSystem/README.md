@@ -7,7 +7,7 @@
 - Wander System [Not required]
 
 ## Description
-Non Player Characters (NPCs) exists in almost every game created, and they have an essential role in making the user experience as immersive as possible. A good integration between the behaviors of those NPCs and the animation system of a game is vital. A NPC that walk straight and just looks to the front is nor very organic. With the component created in this Unity3D project, the characters will look alive, being able to look around them to interesting objects and prioritizing those with more interest to them.
+Non Player Characters (NPCs) exist in almost every game created, and they have an essential role in making the user experience as immersive as possible. A good integration between the behaviors of those NPCs and the animation system of a game is vital. A NPC that walks straight and just looks to the front is not very organic and breaks the immersion. With the component created in this Unity3D project, the characters will look alive, being able to look around them to interesting objects and prioritizing those with more interest to them.
 
 ### Scene View
 ![](https://i.imgur.com/rQvQB0V.gif)
