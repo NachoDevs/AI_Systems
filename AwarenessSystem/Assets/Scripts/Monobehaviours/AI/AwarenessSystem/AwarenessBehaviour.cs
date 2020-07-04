@@ -120,6 +120,9 @@ namespace Game_AI
             return dotProduct < this.DotVisionLimit;
         }
 
+        ///<summary>
+        /// Makes the character reset the position of the look target
+        ///</summary>
         private void ResetLookDirection()
         {
             Vector3 newLookPos = this.transform.position + this.transform.forward * 2;

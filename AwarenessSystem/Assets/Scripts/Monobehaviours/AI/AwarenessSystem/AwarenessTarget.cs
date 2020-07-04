@@ -6,16 +6,29 @@ namespace Game_AI
     [RequireComponent(typeof(Collider))]
     public class AwarenessTarget : MonoBehaviour
     {
+        [Tooltip("The level of priority used when a character decides which object to look at.")]
         [Range(0, 10)]
         public int Priority = 0;
 
         /// Just to update it at least as possible, not really needed for the awareness system
         private int prevPriority = -1;
 
+        /// <summary>
+        /// Action that takes places once every update
+        /// </summary>
         private void Update()
         {
             if(this.Priority != this.prevPriority)
             {
+                MatchMaterial();
+            }
+        }
+
+        /// <summary>
+        /// Updates the material to match the current priority level 
+        /// </summary>
+        private void MatchMaterial()
+        {
                 /// Update the value
                 this.prevPriority = this.Priority;
 
@@ -24,6 +37,7 @@ namespace Game_AI
                 /// Get the current material
                 Material newMat = renderer.material;
 
+                /// If the material is null, return
                 if(!newMat)
                 {
                     return;
@@ -38,7 +52,6 @@ namespace Game_AI
 
                 /// Change the renderer material
                 renderer.material = newMat;
-            }
         }
     }
 }
