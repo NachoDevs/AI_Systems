@@ -66,6 +66,7 @@ namespace Game_AI
             if(newTargetIndex == this.targetIndex)
             {
                 newTargetIndex++;
+                newTargetIndex %= this.PossibleTargets.Count;
             }
 
             /// Update new target

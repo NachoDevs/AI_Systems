@@ -23,6 +23,9 @@ namespace Game_AI
             awarenessCollider.isTrigger = true;
             awarenessCollider.radius = this.AwarenessRadius;
 
+            Vector3 newCenter = new Vector3(0,0, this.AwarenessRadius);
+            awarenessCollider.center = newCenter;
+
             this.defaultLookTargetOffset = LookTarget.transform.localPosition;
         }
 
@@ -45,42 +48,43 @@ namespace Game_AI
         }
 
         /// <summary>
-        /// Action that takes place when an object enters our trigger
+        /// Action that takes place when an object is inside our trigger
         /// </summary>
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             /// Check if the collision has the AwarenessTarget component
-            if (!other.TryGetComponent<AwarenessTarget>(out AwarenessTarget target))
+            if (!other.TryGetComponent<AwarenessTarget>(out AwarenessTarget newTarget))
             {
                 return;
             }
 
-            if(!CanSee(other.transform))
-            {
-                return;
-            }
-
-            /// If we dont have a target yet
+            /// If we don't have a target yet
             if (this.currTarget == null)
             {
-                this.currTarget = target;
+                this.currTarget = newTarget;
             }
             else
             {
-                /// If we find some object with higher priority
-                if(target.Priority > this.currTarget.Priority)
+                if(!CanSee(newTarget.transform))
                 {
-                    this.currTarget = target;
+                    return;
                 }
-                else if(target.Priority == this.currTarget.Priority)
+
+                /// If we find some object with higher priority
+                if(newTarget.Priority > this.currTarget.Priority)
                 {
+                    this.currTarget = newTarget;
+                }
+                else if(newTarget.Priority == this.currTarget.Priority)
+                {
+                    /// If they have the same priority, set the closest as the target
                     float targetDist    = Vector3.Distance(this.transform.position, this.currTarget.transform.position);
-                    float newDist       = Vector3.Distance(this.transform.position, target.transform.position);
+                    float newDist       = Vector3.Distance(this.transform.position, newTarget.transform.position);
 
                     /// If we are closer to the new object we set this as our target
                     if(newDist > targetDist)
                     {
-                        this.currTarget = target;
+                        this.currTarget = newTarget;
                     }
                 }
             }
