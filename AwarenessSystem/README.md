@@ -48,29 +48,29 @@ public class AwarenessTarget : MonoBehaviour
 	/// </summary>
 	private void MatchMaterial()
 	{
-			/// Update the value
-			this.prevPriority = this.Priority;
+		/// Update the value
+		this.prevPriority = this.Priority;
 
-			var renderer = GetComponent<MeshRenderer>();
+		var renderer = GetComponent<MeshRenderer>();
 
-			/// Get the current material
-			Material newMat = renderer.material;
+		/// Get the current material
+		Material newMat = renderer.material;
 
-			/// If the material is null, return
-			if(!newMat)
-			{
-				return;
-			}
+		/// If the material is null, return
+		if(!newMat)
+		{
+			return;
+		}
 
-			/// Calculate the level of redness based on the max of the values of priority
-			float nonRedValue = Priority / 10.0f;
-			nonRedValue = Mathf.Abs(1 - nonRedValue);
+		/// Calculate the level of redness based on the max of the values of priority
+		float nonRedValue = Priority / 10.0f;
+		nonRedValue = Mathf.Abs(1 - nonRedValue);
 
-			/// Change the material's color
-			newMat.color = new Color(1, nonRedValue, nonRedValue, 1);
+		/// Change the material's color
+		newMat.color = new Color(1, nonRedValue, nonRedValue, 1);
 
-			/// Change the renderer material
-			renderer.material = newMat;
+		/// Change the renderer material
+		renderer.material = newMat;
 	}
 }
 ```
@@ -188,7 +188,7 @@ public class AwarenessBehaviour : MonoBehaviour
 	}
 
 	///<summary>
-	/// Checks if the object is in front of the player
+	/// Checks if the object is in front of the character
 	///</summary>
 	private bool CanSee(Transform target)
 	{
