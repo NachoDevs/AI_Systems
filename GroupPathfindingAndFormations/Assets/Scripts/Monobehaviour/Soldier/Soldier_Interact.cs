@@ -27,19 +27,6 @@ namespace Game_Characters
             this.myAnimation.StartRunAnimation(); 
             this.navAgent.SetDestination(target);
         }
-
-        private void Update() 
-        {
-            if(Input.GetMouseButtonDown(0))
-            {
-                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                if(Physics.Raycast(ray, out RaycastHit hit))
-                {
-                    SetMovementTarget(hit.point);
-                }
-            }
-        }
     }
 }
 
