@@ -1,4 +1,4 @@
-# Awareness System
+# Group Pathfinding and Formations
 
 ## Previous SetUp
 
