@@ -50,5 +50,19 @@ namespace Game_Characters
         {
             this.myAnimator.SetFloat("MoveSpeed", 1);
         }
+
+        private void OnDrawGizmos() 
+        {
+            if(UnityEditor.EditorApplication.isPlaying)
+            {
+                if(this.navAgent.acceleration > 0)
+                {
+                    for (int pointIndex = 0; pointIndex < this.navAgent.path.corners.Length - 1; pointIndex++)
+                    {
+                        Gizmos.DrawLine(this.navAgent.path.corners[pointIndex], this.navAgent.path.corners[pointIndex + 1]);
+                    }
+                }
+            }
+        }
     }
 }

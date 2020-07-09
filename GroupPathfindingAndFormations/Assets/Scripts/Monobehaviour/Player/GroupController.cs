@@ -41,7 +41,6 @@ namespace Game_AI
         {
             var positions = this.currentGroup.GetPositionsWithFormation(targetPosition, this.SelectedFormation);
 
-
             for (int unitIndex = 0; unitIndex < this.currentGroup.Units.Count; unitIndex++)
             {
                 GameObject soldier = this.currentGroup.Units[unitIndex];

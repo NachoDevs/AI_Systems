@@ -35,6 +35,10 @@ namespace Utilities
         /// </summary>
         public List<Vector3> GetPositionsWithFormation(Vector3 targetPosition, UnitFormationType formation)
         {
+            SortUnitsByDistanceToPosition(targetPosition);
+
+            var formationDirection = targetPosition - this.Units[0].transform.position;
+
             List<Vector3> positions = new List<Vector3>() { targetPosition };
 
             switch (formation)
@@ -85,7 +89,6 @@ namespace Utilities
                 break;
             }
 
-            SortUnitsByDistanceToPosition(targetPosition);
 
             return positions;
         }
@@ -100,7 +103,7 @@ namespace Utilities
                 float aDist = Vector3.Distance(unitA.transform.position, targetPosition);
                 float bDist = Vector3.Distance(unitB.transform.position, targetPosition);
 
-                return bDist.CompareTo(aDist);
+                return aDist.CompareTo(bDist);
             });
         }
     }
