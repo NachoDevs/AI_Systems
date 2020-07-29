@@ -36,11 +36,23 @@ namespace Utilities
         public List<Vector3> GetPositionsWithFormation(Vector3 targetPosition, UnitFormationType formation)
         {
             SortUnitsByDistanceToPosition(targetPosition);
+            
+            Vector3 unitsCenterPos = Vector3.zero;
+            foreach (var unit in this.Units)
+            {
+                unitsCenterPos += unit.transform.position;
+            }
+            unitsCenterPos /= this.Units.Count;
 
-            var formationDirection = targetPosition - this.Units[0].transform.position;
+            Vector3 moveDirection = targetPosition - unitsCenterPos;
+            moveDirection.Normalize();
+
+            Vector3 defaultFormationDir = new Vector3(0, 0, -1);
+            float diffAngle = Vector3.SignedAngle(defaultFormationDir, moveDirection, Vector3.up);
+
+            Debug.Log(diffAngle);
 
             List<Vector3> positions = new List<Vector3>() { targetPosition };
-
             switch (formation)
             {
                 case UnitFormationType.Arrow:
@@ -53,7 +65,17 @@ namespace Utilities
                         {
                             int cIndex = wIndex - currentRow;
 
-                            Vector3 newPosition = new Vector3(cIndex, 0, currentRow);
+                            Vector2 defPosition = new Vector2(cIndex, currentRow);
+
+                            float angleCos = Mathf.Cos(diffAngle);
+                            float angleSin = Mathf.Sin(diffAngle);
+
+                            Vector3 newPosition = new Vector3
+                            (
+                                defPosition.x * angleCos - defPosition.y * angleSin,
+                                0,
+                                defPosition.x * angleSin + defPosition.y * angleCos
+                            );
 
                             /// Unit spacing
                             newPosition *= 2;
