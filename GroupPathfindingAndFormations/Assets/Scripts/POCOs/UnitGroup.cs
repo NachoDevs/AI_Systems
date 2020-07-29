@@ -47,11 +47,10 @@ namespace Utilities
             Vector3 moveDirection = targetPosition - unitsCenterPos;
             moveDirection.Normalize();
 
-            Vector3 defaultFormationDir = new Vector3(0, 0, -1);
-            float diffAngle = Vector3.SignedAngle(defaultFormationDir, moveDirection, Vector3.up);
-
-            Debug.Log(diffAngle);
-
+            Vector3 defFormationDir = new Vector3(0, 0, -1);
+            float diffAngle = Vector3.SignedAngle(moveDirection, defFormationDir, Vector3.up);
+            diffAngle *= Mathf.Deg2Rad;
+            
             List<Vector3> positions = new List<Vector3>() { targetPosition };
             switch (formation)
             {
@@ -65,16 +64,16 @@ namespace Utilities
                         {
                             int cIndex = wIndex - currentRow;
 
-                            Vector2 defPosition = new Vector2(cIndex, currentRow);
+                            Vector3 defPosition = new Vector3(cIndex, 0, currentRow);
 
                             float angleCos = Mathf.Cos(diffAngle);
                             float angleSin = Mathf.Sin(diffAngle);
 
                             Vector3 newPosition = new Vector3
                             (
-                                defPosition.x * angleCos - defPosition.y * angleSin,
+                                defPosition.x * angleCos - defPosition.z * angleSin,
                                 0,
-                                defPosition.x * angleSin + defPosition.y * angleCos
+                                defPosition.x * angleSin + defPosition.z * angleCos
                             );
 
                             /// Unit spacing
