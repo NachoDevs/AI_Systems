@@ -44,6 +44,7 @@ namespace Utilities
             }
             unitsCenterPos /= this.Units.Count;
 
+<<<<<<< HEAD
             Vector3 moveDirection = targetPosition - unitsCenterPos;
             moveDirection.Normalize();
 
@@ -52,6 +53,14 @@ namespace Utilities
 
             Debug.Log(diffAngle);
 
+=======
+            var target2DPos = new Vector2
+            (
+                targetPosition.x, 
+                targetPosition.z
+            );
+            
+>>>>>>> 81e4e91d5c8f61c373cf31126cfc44828b45768b
             List<Vector3> positions = new List<Vector3>() { targetPosition };
             switch (formation)
             {
@@ -67,8 +76,17 @@ namespace Utilities
 
                             Vector2 defPosition = new Vector2(cIndex, currentRow);
 
+<<<<<<< HEAD
                             float angleCos = Mathf.Cos(diffAngle);
                             float angleSin = Mathf.Sin(diffAngle);
+=======
+                            Vector2 defRelDirection = Vector2.zero - defPosition;
+
+                            float angleDiff = Vector2.SignedAngle(defRelDirection, target2DPos);
+
+                            float angleCos = Mathf.Cos(angleDiff);
+                            float angleSin = Mathf.Sin(angleDiff);
+>>>>>>> 81e4e91d5c8f61c373cf31126cfc44828b45768b
 
                             Vector3 newPosition = new Vector3
                             (
