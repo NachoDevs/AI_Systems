@@ -37,10 +37,13 @@ namespace Utilities
         {
             SortUnitsByDistanceToPosition(targetPosition);
 
-            var formationDirection = targetPosition - this.Units[0].transform.position;
-
+            var target2DPos = new Vector2
+            (
+                targetPosition.x, 
+                targetPosition.z
+            );
+            
             List<Vector3> positions = new List<Vector3>() { targetPosition };
-
             switch (formation)
             {
                 case UnitFormationType.Arrow:
@@ -53,7 +56,21 @@ namespace Utilities
                         {
                             int cIndex = wIndex - currentRow;
 
-                            Vector3 newPosition = new Vector3(cIndex, 0, currentRow);
+                            Vector2 defPosition = new Vector2(cIndex, currentRow);
+
+                            Vector2 defRelDirection = Vector2.zero - defPosition;
+
+                            float angleDiff = Vector2.SignedAngle(defRelDirection, target2DPos);
+
+                            float angleCos = Mathf.Cos(angleDiff);
+                            float angleSin = Mathf.Sin(angleDiff);
+
+                            Vector3 newPosition = new Vector3
+                            (
+                                defPosition.x * angleCos - defPosition.y * angleSin,
+                                0,
+                                defPosition.x * angleSin + defPosition.y * angleCos
+                            );
 
                             /// Unit spacing
                             newPosition *= 2;

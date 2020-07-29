@@ -57,10 +57,11 @@ namespace Game_Characters
             {
                 if(this.navAgent.acceleration > 0)
                 {
-                    for (int pointIndex = 0; pointIndex < this.navAgent.path.corners.Length - 1; pointIndex++)
-                    {
-                        Gizmos.DrawLine(this.navAgent.path.corners[pointIndex], this.navAgent.path.corners[pointIndex + 1]);
-                    }
+                    Gizmos.DrawSphere(this.navAgent.destination, .1f);
+                    // for (int pointIndex = 0; pointIndex < this.navAgent.path.corners.Length - 1; pointIndex++)
+                    // {
+                    //     Gizmos.DrawLine(this.navAgent.path.corners[pointIndex], this.navAgent.path.corners[pointIndex + 1]);
+                    // }
                 }
             }
         }

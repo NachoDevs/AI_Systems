@@ -194,14 +194,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToonSoldier (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c206074477085c4d922852d8272c4b2, type: 3}
---- !u!1 &90294825 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 90294824}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &107632707
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,23 +294,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107632707}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &185414512 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1501813813}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &252163827 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
     type: 3}
   m_PrefabInstance: {fileID: 640587117}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &310985191 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1940396608}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &419181593
 GameObject:
@@ -348,12 +335,6 @@ Transform:
   m_Father: {fileID: 897023256}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &429972465 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 844000679}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &461520274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -420,6 +401,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ToonSoldier (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c206074477085c4d922852d8272c4b2, type: 3}
@@ -583,6 +569,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToonSoldier (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c206074477085c4d922852d8272c4b2, type: 3}
 --- !u!1001 &640587117
@@ -651,6 +642,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ToonSoldier (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c206074477085c4d922852d8272c4b2, type: 3}
@@ -752,12 +748,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1074625198006490934}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &716648523 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 573346058}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &794605938
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,6 +844,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ToonSoldier (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c206074477085c4d922852d8272c4b2, type: 3}
@@ -1232,6 +1227,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToonSoldier (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c206074477085c4d922852d8272c4b2, type: 3}
 --- !u!1 &1510760929
@@ -1269,11 +1269,6 @@ MonoBehaviour:
   - {fileID: 24394997}
   - {fileID: 901729287}
   - {fileID: 252163827}
-  - {fileID: 310985191}
-  - {fileID: 185414512}
-  - {fileID: 429972465}
-  - {fileID: 716648523}
-  - {fileID: 90294825}
 --- !u!4 &1510760931
 Transform:
   m_ObjectHideFlags: 0
@@ -1282,7 +1277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510760929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1522,6 +1517,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToonSoldier (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c206074477085c4d922852d8272c4b2, type: 3}
 --- !u!1001 &1956337233
@@ -1590,6 +1590,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ToonSoldier (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074625198053152871, guid: 4c206074477085c4d922852d8272c4b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c206074477085c4d922852d8272c4b2, type: 3}
