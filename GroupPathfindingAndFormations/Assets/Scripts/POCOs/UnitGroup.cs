@@ -50,14 +50,17 @@ namespace Utilities
             Vector3 defFormationDir = new Vector3(0, 0, -1);
             float diffAngle = Vector3.SignedAngle(moveDirection, defFormationDir, Vector3.up);
             diffAngle *= Mathf.Deg2Rad;
+
+            float angleCos = Mathf.Cos(diffAngle);
+            float angleSin = Mathf.Sin(diffAngle);
             
-            List<Vector3> positions = new List<Vector3>() { targetPosition };
+            List<Vector3> defPositions = new List<Vector3>();
             switch (formation)
             {
                 case UnitFormationType.Arrow:
                 {
                     int currentRow = 1;
-                    while(positions.Count < this.Units.Count)
+                    while(defPositions.Count < this.Units.Count)
                     {
                         int rowUnitCount = currentRow * 2 + 1;
                         for (int wIndex = 0; wIndex < rowUnitCount; wIndex++)
@@ -65,24 +68,7 @@ namespace Utilities
                             int cIndex = wIndex - currentRow;
 
                             Vector3 defPosition = new Vector3(cIndex, 0, currentRow);
-
-                            float angleCos = Mathf.Cos(diffAngle);
-                            float angleSin = Mathf.Sin(diffAngle);
-
-                            Vector3 newPosition = new Vector3
-                            (
-                                defPosition.x * angleCos - defPosition.z * angleSin,
-                                0,
-                                defPosition.x * angleSin + defPosition.z * angleCos
-                            );
-
-                            /// Unit spacing
-                            newPosition *= 2;
-
-                            /// Relative to the selected position
-                            newPosition += targetPosition;
-
-                            positions.Add(newPosition);
+                            defPositions.Add(defPosition);
                         }
                         currentRow++;
                     }
@@ -96,20 +82,38 @@ namespace Utilities
                     /// Skip the leather
                     for (int unitIndex = 1; unitIndex < this.Units.Count; unitIndex++)
                     {
-                        Vector3 newPosition = new Vector3(unitIndex / squareWidth, 0, unitIndex % squareWidth);
-                        
-                        /// Unit spacing
-                        newPosition *= 2;
+                        Vector3 defPosition = new Vector3
+                        (
+                            unitIndex / squareWidth, 
+                            0, 
+                            unitIndex % squareWidth
+                        );
 
-                        /// Relative to the selected position
-                        newPosition += targetPosition;
-
-                        positions.Add(newPosition);
+                        defPositions.Add(defPosition);
                     }
                 }
                 break;
             }
 
+            List<Vector3> positions = new List<Vector3>() { targetPosition };
+            /// Apply rotations
+            foreach (var defPosition in defPositions)
+            {
+                Vector3 newPosition = new Vector3
+                (
+                    defPosition.x * angleCos - defPosition.z * angleSin,
+                    0,
+                    defPosition.x * angleSin + defPosition.z * angleCos
+                );
+
+                /// Unit spacing
+                newPosition *= 2;
+
+                /// Relative to the selected position
+                newPosition += targetPosition;
+
+                positions.Add(newPosition);
+            }
 
             return positions;
         }
