@@ -60,7 +60,7 @@ namespace Utilities
                 case UnitFormationType.Arrow:
                 {
                     int currentRow = 1;
-                    while(defPositions.Count < this.Units.Count)
+                    while(defPositions.Count < (this.Units.Count - 1))
                     {
                         int rowUnitCount = currentRow * 2 + 1;
                         for (int wIndex = 0; wIndex < rowUnitCount; wIndex++)
