@@ -10,15 +10,18 @@
 When moving a big amount of units, calculating the paths for each one of those units can be very expensive if the distance is large. But we can use group pathfinding to make this way faster. The way it is achieved in this project is by assigning one unit as a leader, calculating the path for that unit and making the others follow it. Now, this tend to make the follower units form a big blob of agents, and that is not very realistic. For this we can apply algorithms like 'flocking'. In this case it is used one of the rules of the flocking algorithm, the avoidance calculation. This avoidance vector returns a direction for the unit that will make it flee from the closest units around him, that, combined with a movement towards the leader will make a much more realistic group movement and making way more efficient than calculating the path for each individual.
 
 The magenta rays are the avoidance vectors:
-![]{https://i.imgur.com/OP9SX4S.gif}
+
+![](https://i.imgur.com/OP9SX4S.gif)
 
 Now, usually, when moving large amounts of units, we don't want them to try to reach the same spot, we want them to stop in an organized way. This is where formations come into place. Once the leader unit is getting closer to the target position the behavior for the follower units will change from following the leader while avoiding other units to a normal pathfinding towards a relative position from the target position. This relative position will be calculated ahead, and it will depend on the formation we choose. In this project there are two formations, an arrow like formation and a square one.
 
 Not good:
+
 ![](https://i.imgur.com/qkVIWh5.gif)
 
 Much better:
-![]{https://i.imgur.com/h2OL8Hy.gif}
+
+![](https://i.imgur.com/h2OL8Hy.gif)
 
 ### Follower Units Positioning
 
