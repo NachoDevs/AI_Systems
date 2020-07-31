@@ -5,6 +5,8 @@ namespace Game_Characters
 {
     public class Soldier_Interact : MonoBehaviour
     {
+        public const float DEFAULT_UNIT_SPEED = 3.5f;
+        
         private NavMeshAgent navAgent;
 
         private Soldier_Animation myAnimation;
@@ -24,7 +26,10 @@ namespace Game_Characters
         /// </summary>
         public void SetMovementTarget(Vector3 target)
         {
-            this.myAnimation.StartRunAnimation(); 
+            this.myAnimation.StartRunAnimation();
+
+            this.navAgent.speed = DEFAULT_UNIT_SPEED;
+            
             this.navAgent.SetDestination(target);
         }
     }
