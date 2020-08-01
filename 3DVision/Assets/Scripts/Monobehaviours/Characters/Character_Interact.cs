@@ -34,7 +34,7 @@ namespace Character
         /// </summary>
         public bool CanBeSeen(Vector3 spotterEyes, float visionDistance)
         {
-            float spotingValue = 0;
+            float spottingValue = 0;
 
             for (int vTargetIndex = 0; vTargetIndex < this.Keys_VisionTargets.Count; vTargetIndex++)
             {
@@ -49,7 +49,7 @@ namespace Character
                 {
                     if(hit.collider.transform == target)
                     {
-                        spotingValue += tWeight;
+                        spottingValue += tWeight;
                         isAHit = true;
                     }
                 }
@@ -63,7 +63,7 @@ namespace Character
                 );
             }
 
-            return spotingValue >= this.VisibilityThreshold; 
+            return spottingValue >= this.VisibilityThreshold; 
         }
     }
 }

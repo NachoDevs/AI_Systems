@@ -93,8 +93,8 @@ namespace Character
         /// </summary>
         private void InstantiateSpottingFeedback()
         {
-            Vector3 signPos = this.transform.position;
-            signPos.y += .5f;
+            Vector3 signPos = this.MyEyes.position;
+            signPos.y += .2f;
 
             var sign = Instantiate
             (
