@@ -2,8 +2,8 @@
 
 ## Previous SetUp
 
-- Rigged character [Recommended]
-- Pathfinding [Not required]
+- Rigged character [Recommended] (Used: https://www.mixamo.com)
+- Pathfinding [Recommended]
 - Wander System [Not required]
 
 ## Description
