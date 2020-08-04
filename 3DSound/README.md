@@ -3,6 +3,7 @@
 ## Previous SetUp
 
 - NavMesh Components [Required] (https://github.com/Unity-Technologies/NavMeshComponents)
+- Animated character [Recommended] (Used: https://www.mixamo.com)
 
 ## Description
 
@@ -19,3 +20,7 @@ In this project the most important is not the code provided but the NavMeshLink 
 As you can see in the next image, there is an area around the wall, this is the NavMeshLink which allows calculating a path through the wall. If an agent tried to walk this path it would be blocked by the wall, but since we are only using it to calculate a path for the sound, there is no problem in using it this way. And this is the reason why the NavMesh components from Unity-Technologies are used, because by default it is not possible (or I don't know how to do it) to bake a mesh through an object which is affecting the Navmesh of the normal agents and be able to recalculate the cost of the area.
 
 ![](https://i.imgur.com/2BQ2C6y.png)
+
+## Disclaimer
+
+Even though the 'mutant' model is free (you can get it in the link above) it is been removed from the repository due to its heavy file size.
