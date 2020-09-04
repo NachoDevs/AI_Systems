@@ -23,4 +23,4 @@ As you can see in the next image, there is an area around the wall, this is the 
 
 ## Disclaimer
 
-Even though the 'mutant' model is free (you can get it in the link above) it is been removed from the repository due to its heavy file size.
+Even though the 'mutant' model is free (you can get it in the link above) it has been removed from the repository due to its heavy file size.
